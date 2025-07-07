@@ -2,12 +2,17 @@ from fastapi import FastAPI
 from services.slm_service import SlmService
 from models.ask_model import AskModel
 
+# Initialize FastAPI app
 app = FastAPI()
 
 @app.post("/ask")
 async def ask(request: AskModel):
     obj = SlmService()
-    return obj.process_question(request)
+
+    """Load the model when the app starts"""
+    await obj.load_model()
+
+    return await obj.generate_response(request)
 
 
 if __name__ == "__main__":

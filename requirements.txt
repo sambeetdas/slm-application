@@ -2,7 +2,6 @@ transformers
 torch
 fastapi
 uvicorn
-websockets
 python-dotenv
 jinja2 
 aiofiles
