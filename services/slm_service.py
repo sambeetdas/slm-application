@@ -5,15 +5,11 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 class SlmService:
 
-    api_url = None
-    hf_token = None
     tokenizer = None
     model = None
     model_name = None
     max_history_length = None
     def __init__(self):
-        self.api_url = os.environ.get("API_URL")
-        self.hf_token = os.environ.get("HF_TOKEN")
         self.model_name = os.environ.get("MODEL_NAME")
         self.max_history_length = 1000
 
